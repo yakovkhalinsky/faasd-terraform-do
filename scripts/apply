@@ -1,0 +1,14 @@
+#!/bin/bash
+
+TFVARS=$1
+
+required_missing() {
+  echo "ERR: Missing TFVARS argument"
+  echo "Usage:    $0 <TFVARS_FILE>"
+  echo "Example:  $0 environments/prod.tfvars"
+  exit 1
+}
+
+[ -z "$var" ] && required_missing
+
+terraform apply -var-file=$TFVARS
