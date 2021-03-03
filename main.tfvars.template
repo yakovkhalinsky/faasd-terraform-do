@@ -4,5 +4,6 @@ do_subdomain      = ""
 do_create_record  = true
 do_region         = ""
 do_droplet_size   = ""
+do_droplet_name   = ""
 do_droplet_image  = ""
 letsencrypt_email = ""

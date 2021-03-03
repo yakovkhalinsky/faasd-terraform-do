@@ -26,6 +26,11 @@ variable "do_droplet_size" {
   default     = "s-1vcpu-1gb"
   description = "Size of the droplet"
 }
+
+variable "do_droplet_name" {
+  default     = "faasd"
+  description = "Name of the droplet"
+}
 variable "do_droplet_image" {
   default     = "ubuntu-18-04-x64"
   description = "DO Droplet image to use for the VM"
@@ -62,7 +67,7 @@ data "template_file" "cloud_init" {
 resource "digitalocean_droplet" "faasd" {
   region = var.do_region
   image  = var.do_droplet_image
-  name   = "faasd"
+  name   = var.do_droplet_name
   size = var.do_droplet_size
   user_data = data.template_file.cloud_init.rendered
 }
